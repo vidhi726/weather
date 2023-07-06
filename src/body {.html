@@ -1,0 +1,312 @@
+body {
+  display: grid;
+  height: 100vh;
+
+  place-items: flex-end;
+  background-image: url("../w.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.ctn-button {
+  height: 29px;
+  min-height: auto;
+}
+.textbox {
+  height: 36px;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-end;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.card {
+  background: rgba(0.1, 0.1, 0.1, 0.2);
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(164, 164, 184, 0.3);
+
+  width: 311px;
+  height: 697px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  backdrop-filter: blur(30px);
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="left">
+<div className="card">
+  <div className="search-bar">
+    <input
+      class="textbox"
+      type="text"
+      placeholder="Select a area"
+      style={{
+        backgroundColor: "#7e92a5",
+        color: "#fafdf8",
+      }}
+    />
+    <button type="submit" class="ctn-button">
+      <SearchSharpIcon />
+    </button>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div className="main-wrapper">
+  <div className="left-div"></div>
+  <div className="right-div">
+    {" "}
+    <Box
+      component="form"
+      sx={{
+        "& > :not(style)": { m: 0, idth: "ch" },
+      }}
+      noValidate
+      autoComplete="off"
+      className="textfield"
+    >
+      <TextField
+        id="standard-basic"
+        className="text-box"
+        label="Another Location"
+        variant="standard"
+        style={{ width: "200px" }}
+      />
+    </Box>
+    <button type="submit" className="ctn-button">
+      <SearchSharpIcon />
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+  08
+  <sup>
+    <TripOriginIcon sx={{ fontSize: 33 }} />
+  </sup>{" "}
+  London{" "}
+  <ThunderstormOutlinedIcon className="cloud" sx={{ fontSize: 50 }} />
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React from "react";
+import "./weather.css";
+import SearchSharpIcon from "@mui/icons-material/SearchSharp";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import CloudOutlinedIcon from "@mui/icons-material/CloudOutlined";
+import ThunderstormOutlinedIcon from "@mui/icons-material/ThunderstormOutlined";
+import TripOriginIcon from "@mui/icons-material/TripOrigin";
+export default function Weather() {
+  const currentDate = new Date();
+  const datePart = String(currentDate);
+  let part = datePart.slice(0, 25);
+  setInterval(function () {
+    currentDate.innerText =
+      currentDate.getHours() +
+      ":" +
+      currentDate.getMinutes() +
+      ":" +
+      currentDate.getSeconds();
+  }, 1000);
+
+  return (
+    <>
+      <div className="main-wrapper">
+        {" "}
+        <div className="card">
+          <p style={{ fontSize: "60px" }}>
+            08
+            <sup>
+              <TripOriginIcon sx={{ fontSize: " 80% ", height: "61px" }} />
+            </sup>{" "}
+            <span style={{ marginLeft: "10px" }}>London</span>
+            <ThunderstormOutlinedIcon
+              className="cloud"
+              sx={{ fontSize: 50, marginLeft: "10px" }}
+            />
+          </p>
+          <span id="datetime">{part}</span>
+        </div>
+      </div>
+      <div className="right-div">
+        <div className="search-bar">
+          <Box
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, idth: "25ch" },
+            }}
+            noValidate
+            autoComplete="off"
+            className="textfield"
+          >
+            <TextField
+              id="standard-basic"
+              label="Another Location"
+              variant="standard"
+              style={{ width: "300px" }}
+            />
+          </Box>
+
+          <button type="submit" className="ctn-button">
+            <SearchSharpIcon />
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
